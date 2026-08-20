@@ -347,11 +347,11 @@ export function HomeWork() {
 
                 {/* the product itself, two screens deep */}
                 <div
-                  className={`work-stage work-stage--${project.tone}`}
+                  className={`home-work__stage home-work__stage--${project.tone}`}
                   aria-hidden="true"
                 >
                   {/* the light the pair stand in */}
-                  <span className="work-stage__glow" />
+                  <span className="home-work__stage-glow" />
 
                   {/* Turned towards each other rather than parked side by
                       side: the near one leans out of the card, the far one
@@ -393,10 +393,10 @@ export function HomeWork() {
         </ul>
 
         {/* ---------- the tally ---------- */}
-        <dl className="work-tally mt-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="home-work__tally mt-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {TALLY.map((item) => (
-            <div key={item.label} className="work-tally__cell">
-              <span className="work-tally__icon">{item.icon}</span>
+            <div key={item.label} className="home-work__tally-cell">
+              <span className="home-work__tally-icon">{item.icon}</span>
               <div>
                 <dt className="text-[1.6rem] font-extrabold leading-none tracking-[-0.03em] text-[var(--ink)]">
                   <Counter to={item.to} suffix={item.suffix} />

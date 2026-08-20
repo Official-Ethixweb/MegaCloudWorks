@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 
 import './blur-text.css'
@@ -98,17 +98,22 @@ export function BlurText({
       style={{ '--blur-text-duration': `${totalDuration}s` } as CSSProperties}
     >
       {elements.map((segment, index) => (
-        <span
-          key={index}
-          className="blur-text__seg"
-          style={{ animationDelay: `${(index * delay) / 1000}s` }}
-          onAnimationEnd={
-            index === elements.length - 1 ? () => done.current?.() : undefined
-          }
-        >
-          {segment === ' ' ? ' ' : segment}
-          {animateBy === 'words' && index < elements.length - 1 && ' '}
-        </span>
+        <Fragment key={index}>
+          <span
+            className="blur-text__seg"
+            style={{ animationDelay: `${(index * delay) / 1000}s` }}
+            onAnimationEnd={
+              index === elements.length - 1 ? () => done.current?.() : undefined
+            }
+          >
+            {segment === ' ' ? ' ' : segment}
+          </span>
+          {/* the gap between words sits outside the span on purpose: the
+              segment is an inline-block, and a space at the end of one is
+              trailing whitespace the browser drops - which ran the words
+              together. Out here it also stays a line-break opportunity. */}
+          {animateBy === 'words' && index < elements.length - 1 ? ' ' : null}
+        </Fragment>
       ))}
     </Tagged>
   )

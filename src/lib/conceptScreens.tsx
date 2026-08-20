@@ -451,8 +451,10 @@ function WeekChart({
           {/* the number the week is being judged against */}
           <span aria-hidden="true" className="fl-chart__rule" />
 
-          {bars.map((b) => (
-            <span key={b.d} className="fl-chart__col">
+          {/* keyed by position: the weekday initials repeat (M T W T F S S),
+              so the letter is not unique */}
+          {bars.map((b, i) => (
+            <span key={i} className="fl-chart__col">
               <span className="fl-chart__pct" data-up={b.up ? '' : undefined}>
                 {b.up ? '\u2191' : '\u2193'} {b.pct}
               </span>

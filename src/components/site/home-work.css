@@ -209,7 +209,7 @@
 
 /* ---------------- the screens ---------------- */
 
-.work-stage {
+.home-work__stage {
   position: relative;
   border-radius: 1.25rem;
   overflow: hidden;
@@ -219,7 +219,7 @@
   isolation: isolate;
 }
 
-.work-stage--dark {
+.home-work__stage--dark {
   background: radial-gradient(
     ellipse at 60% 40%,
     #1d1d22 0%,
@@ -228,7 +228,7 @@
   );
 }
 
-.work-stage--light {
+.home-work__stage--light {
   background:
     radial-gradient(
       ellipse at 22% 18%,
@@ -280,7 +280,7 @@
 }
 
 /* the light they stand in */
-.work-stage__glow {
+.home-work__stage-glow {
   position: absolute;
   left: 50%;
   bottom: -12%;
@@ -325,7 +325,7 @@
 
 /* ---------------- the tally ---------------- */
 
-.work-tally {
+.home-work__tally {
   display: grid;
   border-radius: 1.5rem;
   border: 1px solid rgba(16, 16, 20, 0.05);
@@ -334,7 +334,7 @@
   backdrop-filter: blur(6px);
 }
 
-.work-tally__cell {
+.home-work__tally-cell {
   display: flex;
   align-items: center;
   gap: 0.9rem;
@@ -342,18 +342,18 @@
 }
 
 @media (min-width: 640px) {
-  .work-tally__cell:nth-child(even) {
+  .home-work__tally-cell:nth-child(even) {
     border-left: 1px solid var(--line);
   }
 }
 
 @media (min-width: 1024px) {
-  .work-tally__cell + .work-tally__cell {
+  .home-work__tally-cell + .home-work__tally-cell {
     border-left: 1px solid var(--line);
   }
 }
 
-.work-tally__icon {
+.home-work__tally-icon {
   color: var(--brand);
   flex: none;
 }
@@ -426,7 +426,7 @@
    * stand inside the box whole: a taller stage, smaller devices, and the
    * fan pulled in from the right edge.
    */
-  .work-stage {
+  .home-work__stage {
     aspect-ratio: 16 / 15;
   }
 
@@ -443,20 +443,20 @@
   }
 
   /* the far screen of the pair, furthest right and set back */
-  .work-stage .work-device--back:nth-child(2),
+  .home-work__stage .work-device--back:nth-child(2),
   .work-card:hover .work-device--back:nth-child(2) {
     left: 56% !important;
     top: 12% !important;
     transform: rotate(13deg) scale(0.22) !important;
   }
 
-  .work-stage .work-device--back:nth-child(3),
+  .home-work__stage .work-device--back:nth-child(3),
   .work-card:hover .work-device--back:nth-child(3) {
     left: 30% !important;
     top: 3% !important;
   }
 
-  .work-tally__cell {
+  .home-work__tally-cell {
     padding: 1.1rem 1.25rem;
   }
 }
